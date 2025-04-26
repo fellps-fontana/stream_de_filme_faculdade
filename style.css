@@ -1,4 +1,37 @@
-.modal_initial{
-    background-image:url('assets/images/monte-olimpo-w.png') ;
-    border: solid black;
+html, body {
+    height: 100%;
+    margin: 0; 
+    padding: 0; 
 }
+.display{
+    background-image:url('assets/images/monte-olimpo-1920x1080.png') ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    overflow: hidden; 
+    justify-content: right;
+    }
+.modal_login {
+    border: black 1px solid;
+    width: 640px;
+    height: 1080px;
+}
+
+.pilar {
+    border: solid black 1px;
+    padding-top: 242px;
+    width: 640px;
+}
+#left_pilar{
+    
+}
+
+
+
