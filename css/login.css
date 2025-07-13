@@ -1,0 +1,86 @@
+body {
+    background-image: url('../assets/images/monte-olimpo-1920x1080.png'); /* Certifique-se que o caminho está correto */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que ocupa a altura total da tela */
+    font-family: 'Cinzel', serif; /* Ou a fonte que você estiver usando */
+    margin: 0; /* Remove margens padrão do body */
+    overflow: hidden; 
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente */
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    width: 400px; /* Largura para o container */
+    z-index: 10;
+}
+
+.logo {
+    width: 300px; /* Ajuste o tamanho do logo conforme necessário */
+    margin-bottom: 20px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os elementos do formulário */
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+input::placeholder {
+    color: #777;
+}
+
+button {
+    background-color: #5cb85c; /* Cor verde do botão */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#error-message {
+    color: #d9534f; /* Cor vermelha para a mensagem de erro */
+    margin-top: 10px;
+}
+
+.column {
+    position: absolute; /* Para posicionar as colunas */
+}
+
+/* ===== AJUSTE REALIZADO AQUI ===== */
+.column-left {
+    left: 10px; /* Aumentado para mover para o centro */
+    bottom: 0;
+    height: auto; 
+    max-width: 400px; 
+}
+
+.column-right {
+    right: 10px; /* Aumentado para mover para o centro */
+    bottom: 0;
+    height: auto;
+    max-width: 400px;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Flix - Login</title>
+    
+    <link rel="stylesheet" href="css/login.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="login-container">
+        
+        <img src="assets/images/logo.png" alt="Logo Hero Flix" class="logo">
+        
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Digite seu e-mail" required>
+            <input type="password" id="senha" placeholder="Digite sua senha" required>
+            <button type="submit">LOGIN</button>
+        </form>
+        
+        <div id="error-message"></div>
+    </div>
+    <img src="assets/images/pilar.png" alt="Coluna Grega" class="column column-left">
+    <img src="assets/images/pilar.png" alt="Coluna Grega" class="column column-right">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@latest/dist/pouchdb.min.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
