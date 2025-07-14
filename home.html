@@ -1,18 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Hero Flix</title>
-    <link rel="icon" href="assets/images/icone.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="display">
-      <!-- Imagem do fundo do Monte Olimpo -->
-      <img src="assets/images/monte-olimpo-1920x1080.png" alt="Monte Olimpo" class="background-img">
-      
-      <!-- Imagem do Camp Half-Blood -->
-      <img src="assets/images/meio-sangue.png" alt="Camp Half-Blood" id="meio_sangue" class="camp-img">
-    </div>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Flix - Início</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="home.html">
+            <img src="assets/images/logo.png" alt="Logo Hero Flix" class="logo">
+        </a>
+        <div class="user-info">
+            <span id="user-greeting"></span> 
+            <button id="logout-button">Sair</button>
+        </div>
+    </header>
+
+    <nav class="category-menu">
+        <button class="category-button" data-category="Todos">Todos os Destinos</button>
+        <button class="category-button" data-category="Jornadas Épicas">Jornadas Épicas</button>
+        <button class="category-button" data-category="Tragédias Gregas">Tragédias Gregas</button>
+        <button class="category-button" data-category="Fábulas de Sátiros">Fábulas de Sátiros</button>
+        <button class="category-button" data-category="Lendas em Pergaminho">Lendas em Pergaminho</button>
+        <button class="category-button" data-category="Oráculos de Bronze">Oráculos de Bronze</button>
+    </nav>
+
+    <main>
+        <h2>Escolha seu Destino, Mortal</h2>
+
+        <div id="category-display">
+            <h3 id="category-title"></h3>
+            <p id="category-description"></p>
+        </div>
+
+        <div id="movie-grid" class="movie-grid">
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@latest/dist/pouchdb.min.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
 </html>

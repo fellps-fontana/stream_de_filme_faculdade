@@ -1,18 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
-    <title>Hero Flix</title>
-    <link rel="icon" href="assets/images/icone.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="display">
-      <!-- Imagem do fundo do Monte Olimpo -->
-      <img src="assets/images/monte-olimpo-1920x1080.png" alt="Monte Olimpo" class="background-img">
-      
-      <!-- Imagem do Camp Half-Blood -->
-      <img src="assets/images/meio-sangue.png" alt="Camp Half-Blood" id="meio_sangue" class="camp-img">
-    </div>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gerenciar Usuários</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="assets/images/logo.png" alt="Logo Hero Flix" class="logo">
+        <nav>
+            <a href="admin.html">Cadastrar Filme</a>
+            <a href="admin_usuarios.html">Gerenciar Usuários</a>
+            <a href="home.html" class="back-button">Ver Site</a>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+        <h1>Gerenciamento de Usuários</h1>
+
+        <form id="user-form">
+            <h3>Adicionar / Editar Usuário</h3>
+            
+            <input type="hidden" id="userId">
+            <input type="hidden" id="userRev">
+            
+            <input type="text" id="nome" placeholder="Nome completo" required>
+            <input type="email" id="email" placeholder="E-mail (será o login)" required>
+            <input type="password" id="senha" placeholder="Senha">
+            <small>Deixe a senha em branco se não quiser alterá-la na edição.</small>
+            
+            <select id="tipo_acesso" required>
+                <option value="comum">Comum</option>
+                <option value="admin">Administrador</option>
+            </select>
+            <button type="submit">Salvar Usuário</button>
+            <button type="button" id="cancel-edit">Cancelar Edição</button>
+        </form>
+
+        <hr style="margin: 40px 0;">
+
+        <h2>Usuários Registrados no Olimpo</h2>
+        <div id="user-list">
+            </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@latest/dist/pouchdb.min.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/admin.js"></script> 
+</body>
 </html>

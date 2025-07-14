@@ -1,18 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
-    <title>Hero Flix</title>
-    <link rel="icon" href="assets/images/icone.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="display">
-      <!-- Imagem do fundo do Monte Olimpo -->
-      <img src="assets/images/monte-olimpo-1920x1080.png" alt="Monte Olimpo" class="background-img">
-      
-      <!-- Imagem do Camp Half-Blood -->
-      <img src="assets/images/meio-sangue.png" alt="Camp Half-Blood" id="meio_sangue" class="camp-img">
-    </div>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gerenciar Filmes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="assets/images/logo.png" alt="Logo Hero Flix" class="logo">
+        <nav>
+            <a href="admin.html" class="admin-nav-active">Cadastrar Filme</a>
+            <a href="admin_usuarios.html">Gerenciar Usuários</a>
+            <a href="home.html" class="back-button">Ver Site</a>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+        <h1>Forjar / Editar uma Lenda</h1>
+        <p>Preencha os pergaminhos abaixo para adicionar ou atualizar uma história no panteão.</p>
+
+        <form id="add-movie-form">
+            <input type="hidden" id="movieId">
+            <input type="hidden" id="movieRev">
+            
+            <input type="text" id="titulo" placeholder="Título da Lenda" required>
+            <textarea id="sinopse" placeholder="Sinopse (o conto do herói)" rows="5" required></textarea>
+            
+            <select id="categoria" required>
+                <option value="" disabled selected>Selecione o Destino (Categoria)</option>
+                <option value="Jornadas Épicas">Jornadas Épicas</option>
+                <option value="Tragédias Gregas">Tragédias Gregas</option>
+                <option value="Fábulas de Sátiros">Fábulas de Sátiros</option>
+                <option value="Lendas em Pergaminho">Lendas em Pergaminho</option>
+                <option value="Oráculos de Bronze">Oráculos de Bronze</option>
+            </select>
+
+            <input type="url" id="url_imagem" placeholder="URL da Tapeçaria (Imagem do Pôster)" required>
+            <input type="url" id="url_trailer" placeholder="URL da Visão do Oráculo (YouTube)" required>
+
+            <button type="submit">Salvar Lenda</button>
+            
+            <button type="button" id="cancel-edit-movie" style="display: none;">Cancelar Edição</button>
+        </form>
+        
+        <div id="form-message"></div>
+
+        <hr style="margin: 40px 0;">
+        <h2>Lendas Já Forjadas</h2>
+        <div id="movie-list-admin">
+            </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@latest/dist/pouchdb.min.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/admin.js"></script> 
+</body>
 </html>

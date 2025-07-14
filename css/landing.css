@@ -1,6 +1,9 @@
-body {
+body, html {
     margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Cinzel', serif;
+    overflow: hidden;
 }
 
 .landing-container {
@@ -10,29 +13,7 @@ body {
 }
 
 .left-panel, .right-panel {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
-}
-
-.left-panel {
-    background-image: url('../assets/images/monte-olimpo-1920x1080.png'); /* Sua imagem de paisagem */
-    background-size: cover;
-    background-position: center;
-}
-
-.right-panel {
-    background-image: url('../assets/images/meio-sangue.png'); /* Sua imagem de paisagem */
-    background-size: cover;
-    background-position: center;
-}
-.left-panel, .right-panel {
-    flex: 1; /* Diz para cada painel ocupar espaço igual (substitui o width: 50%) */
+    flex: 1; 
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -40,21 +21,35 @@ body {
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    /* A transição suave para a animação de crescimento */
-    transition: flex 0.7s ease; 
+    background-size: cover;
+    background-position: center;
+    
+    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: flex; 
 }
-/* Quando o mouse passar por cima de um painel, ele cresce */
+
 .left-panel:hover,
 .right-panel:hover {
-    flex: 2.5; /* O painel com hover fica 2.5x maior que o outro */
+    flex: 3; 
 }
+
+.left-panel {
+    background-image: url('../assets/images/monte-olimpo-1920x1080.png'); 
+}
+
+.right-panel {
+    background-image: url('../assets/images/meio-sangue.png');
+}
+
 .mascot {
     width: 250px;
     margin-bottom: 40px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .landing-button {
-    background-color: #f0ad4e; /* Cor amarela/dourada de exemplo */
+    background-color: #f0ad4e; 
     color: #333;
     text-decoration: none;
     padding: 15px 40px;

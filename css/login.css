@@ -5,31 +5,31 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Garante que ocupa a altura total da tela */
-    font-family: 'Cinzel', serif; /* Ou a fonte que você estiver usando */
-    margin: 0; /* Remove margens padrão do body */
+    min-height: 100vh; 
+    font-family: 'Cinzel', serif; 
+    margin: 0; 
     overflow: hidden; 
 }
 
 .login-container {
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente */
+    background-color: rgba(0, 0, 0, 0.6); 
     padding: 30px;
     border-radius: 8px;
     text-align: center;
     color: white;
-    width: 400px; /* Largura para o container */
+    width: 400px; 
     z-index: 10;
 }
 
 .logo {
-    width: 300px; /* Ajuste o tamanho do logo conforme necessário */
+    width: 300px; 
     margin-bottom: 20px;
 }
 
 #login-form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaçamento entre os elementos do formulário */
+    gap: 15px; 
     margin-bottom: 20px;
 }
 
@@ -47,8 +47,7 @@ input::placeholder {
 }
 
 button {
-    background-color: #5cb85c; /* Cor verde do botão */
-    color: white;
+    background-color: #5cb85c;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -62,24 +61,23 @@ button:hover {
 }
 
 #error-message {
-    color: #d9534f; /* Cor vermelha para a mensagem de erro */
+    color: #d9534f; 
     margin-top: 10px;
 }
 
 .column {
-    position: absolute; /* Para posicionar as colunas */
+    position: absolute; 
 }
 
-/* ===== AJUSTE REALIZADO AQUI ===== */
 .column-left {
-    left: 10px; /* Aumentado para mover para o centro */
+    left: 10px; 
     bottom: 0;
     height: auto; 
     max-width: 400px; 
 }
 
 .column-right {
-    right: 10px; /* Aumentado para mover para o centro */
+    right: 10px; 
     bottom: 0;
     height: auto;
     max-width: 400px;

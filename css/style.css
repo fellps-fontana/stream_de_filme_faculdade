@@ -1,37 +1,452 @@
-html, body {
-    height: 100%;
+/* ===== ESTILOS GERAIS - TEMA OLIMPO OPULENTO ===== */
+:root {
+    --fundo-marmore: url('https://www.transparenttextures.com/patterns/white-marble.png');
+    --texto-principal: #1f2a36; 
+    --ouro-gradiente: linear-gradient(145deg, #fceabb, #f8b500, #f8b500, #fceabb);
+    --ouro-texto-gradiente: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    --sombra-divina: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    --cor-dourada: #f0ad4e;
+}
+
+body {
+    background-color: #f0f0f0;
+    background-image: var(--fundo-marmore);
+    color: var(--texto-principal);
+    font-family: 'Georgia', 'Times New Roman', serif;
     margin: 0;
     padding: 0;
 }
 
-.display {
-    background-image: url('assets/images/monte-olimpo-1920x1080.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
-    padding: 0;
-    border: none;
+
+/* ===== CABEÇALHO DIVINO ===== */
+header {
     display: flex;
-    justify-content: space-between; /* Coloca as imagens lado a lado */
-    align-items: center; /* Alinha as imagens verticalmente */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    height: 65px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-bottom: 3px solid transparent;
+    border-image: var(--ouro-gradiente) 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.background-img {
-    width: 70%; /* Ajuste a largura da imagem de fundo */
-    height: auto;
+header .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 105px;
+    width: auto;
 }
 
-.camp-img {
-    width: 30%; /* Ajusta o tamanho da imagem do Camp Half-Blood */
-    height: auto;
-    transition: width 0.5s ease, transform 0.5s ease;
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
 }
 
-/* Efeito hover para a imagem do Camp Half-Blood */
-.camp-img:hover {
-    width: 35%;
+#logout-button, .admin-button {
+    background: var(--ouro-gradiente);
+    color: var(--texto-principal);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#logout-button:hover, .admin-button:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+}
+
+
+/* ===== MENU DE CATEGORIAS TEMÁTICO ===== */
+.category-menu {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    gap: 20px;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-image: var(--ouro-gradiente) 1;
+    margin: 0 40px;
+}
+
+.category-button {
+    background: none;
+    color: var(--texto-principal);
+    border: none;
+    cursor: pointer;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.0em;
+    padding: 10px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    position: relative;
+}
+
+.category-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--cor-dourada);
+    transition: width 0.3s ease;
+}
+
+.category-button:hover::after {
+    width: 100%;
+}
+
+.category-button:hover {
+    background-image: var(--ouro-texto-gradiente);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     transform: scale(1.1);
+}
+
+.category-button.active-category {
+    color: var(--cor-dourada);
+}
+
+.category-button.active-category::after {
+    width: 100%;
+}
+
+
+/* ===== GRID DE FILMES E CONTEÚDO PRINCIPAL ===== */
+main {
+    padding: 20px 40px 40px 40px;
+}
+
+main h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    background-image: var(--ouro-texto-gradiente);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #7b5f13;
+}
+
+#category-display {
+    background-color: #fdfdf5;
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 700px;
+    border-radius: 3px;
+    border: 10px solid;
+    border-image-source: var(--ouro-gradiente);
+    border-image-slice: 1;
+    box-shadow: var(--sombra-divina);
+    display: none; 
+    animation: fadeInDown 0.5s ease-out;
+    text-align: center; 
+}
+
+#category-display h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    margin: 0;
+    font-size: 2.0em;
+    color: var(--texto-principal);
+}
+
+#category-display hr {
+    border: none;
+    height: 2px;
+    background: var(--ouro-gradiente);
+    width: 0%;
+    margin: 20px auto;
+}
+
+#category-display p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.movie-card {
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--texto-principal);
+    box-shadow: var(--sombra-divina);
+    transition: all 0.4s ease;
+    border: 1px solid #ddd;
+    border-top: 5px solid transparent;
+    border-image: var(--ouro-gradiente) 1;
+    border-image-slice: 1;
+    border-image-width: 5px 1px 1px 1px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-top-right-radius: 4px;
+}
+
+.movie-card h3 {
+    margin: 0;
+    padding: 15px;
+    font-family: 'Cinzel', cursive;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ===== ESTILOS PARA PÁGINAS DE ADMIN ===== */
+header nav {
+    flex-grow: 1;
+    padding-left: 30px;
+}
+
+header nav a {
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+header nav a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom-color: var(--cor-dourada);
+}
+
+header nav a.admin-nav-active {
+    background-color: #fff;
+    border-bottom-color: #fff;
+}
+
+header nav a.back-button {
+    background: var(--ouro-gradiente);
+    color: var(--texto-principal);
+    border-radius: 5px;
+    margin-left: auto;
+}
+
+.admin-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--sombra-divina);
+    border-top: 5px solid transparent;
+    border-image: var(--ouro-gradiente) 1;
+}
+
+.admin-container h1, .admin-container h2, .admin-container h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--texto-principal);
+}
+
+.admin-container form input, 
+.admin-container form textarea, 
+.admin-container form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.admin-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.admin-container form button[type="submit"] {
+    background: var(--ouro-gradiente);
+    color: var(--texto-principal);
+    border: none;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.admin-container form button[type="submit"]:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+#cancel-edit {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.user-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.user-card .edit-btn, .user-card .delete-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+    transition: opacity 0.3s;
+}
+
+.user-card .edit-btn:hover, .user-card .delete-btn:hover {
+    opacity: 0.8;
+}
+
+.user-card .edit-btn { background-color: #3498db; }
+.user-card .delete-btn { background-color: #e74c3c; }
+
+
+/* ===== ESTILOS PARA A PÁGINA DE DETALHES DO FILME (filme.html) (ADICIONADO) ===== */
+
+.movie-details-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: var(--cor-nuvem);
+    border-radius: 10px;
+    box-shadow: var(--sombra-divina);
+}
+
+.poster-container {
+    flex: 0 0 300px;
+}
+
+.poster-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.info-container {
+    flex: 1;
+}
+
+.info-container h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 3.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--texto-principal);
+}
+
+.info-container .meta-info {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.info-container p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.info-container h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2em;
+    border-bottom: 2px solid var(--cor-dourada);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+#trailer-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px;
+}
+
+#trailer-container iframe {
+    width: 100%; /* Ocupa 100% da largura da coluna de informações */
+    height: auto;
+    aspect-ratio: 16 / 9; /* <<< A MÁGICA: Força a proporção de vídeo 16:9 */
+    border: none;         /* Remove a borda padrão do iframe */
+    border-radius: 8px;   /* Adiciona cantos arredondados */
+}
+header a.back-button {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--texto-principal);
+    font-family: 'Cinzel', serif;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header a.back-button:hover {
+    background-color: rgba(0,0,0,0.1);
 }
