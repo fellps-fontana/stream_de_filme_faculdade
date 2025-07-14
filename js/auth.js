@@ -1,4 +1,3 @@
-// ===== FUNÇÃO PARA CRIAR/GARANTIR O ADMIN PADRÃO =====
 async function garantirAdminPadrao() {
     try {
         await db_usuarios.get('admin@heroflix.com');
@@ -19,7 +18,6 @@ async function garantirAdminPadrao() {
     }
 }
 
-// ===== FUNÇÃO PARA POPULAR O CATÁLOGO INICIALMENTE =====
 async function popularOlimpoSeNecessario() {
     try {
         await db_filmes.get('filme_1');
@@ -50,9 +48,7 @@ async function popularOlimpoSeNecessario() {
 }
 
 
-// Espera o conteúdo da página carregar para executar o script
 document.addEventListener('DOMContentLoaded', () => {
-    // Garante que o usuário admin e o catálogo inicial existam
     garantirAdminPadrao();
     popularOlimpoSeNecessario();
 
